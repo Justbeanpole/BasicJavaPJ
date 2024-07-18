@@ -1,8 +1,8 @@
 package studentmanagement.client;
 
-import studentmanagement.function.Function;
+import com.sun.jdi.event.ExceptionEvent;
 import studentmanagement.function.*;
-import studentmanagement.function.Update;
+import studentmanagement.student.Student;
 
 import static studentmanagement.function.InputValidator.*;
 
@@ -10,30 +10,23 @@ import static studentmanagement.function.InputValidator.*;
 public class Client {
     public void execute(){
         while(true){
-            System.out.println("1.Get 2.Read 3.Search 4.Update 5.Delete 6.Exit");
-            Function fuc = selectFunction();
-            if(fuc == null){
-                System.out.println("Exit...");
-                break;
-            }
-            System.out.println();
-            fuc.printFunction();
-            fuc.run();
 
+            selectFunction();
+            System.out.println();
         }
     }
 
-    private Function selectFunction(){
-        System.out.println("Enter the number");
+    private void selectFunction(){
+        ManageSystem ms = ManageSystem.getInstance();
         int id = getInput(1,6);
-        return switch(id){
-            case 1 -> new Get();
-            case 2 -> new Read();
-            case 3 -> new Search();
-            case 4 -> new Update();
-            case 5 -> new Delete();
-            case 6 -> null;
-            default -> null;
+        switch(id){
+            case 1 -> ms.getFuc();
+            case 2 -> ms.readFuc();
+            case 3 -> ms.searchFuc();
+//            case 4 -> ms.updateFuc();
+            case 5 -> ms.deleteFuc();
+            case 6 -> System.exit(0); //종료 함수 대체
+            default -> System.exit(0); //에러 발생 메세지 및 종료
         };
     }
 }
