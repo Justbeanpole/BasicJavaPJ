@@ -1,32 +1,33 @@
 package studentmanagement.client;
 
-import com.sun.jdi.event.ExceptionEvent;
 import studentmanagement.function.*;
-import studentmanagement.student.Student;
+import studentmanagement.view.ViewPrinter;
 
 import static studentmanagement.function.InputValidator.*;
 
 
 public class Client {
+    ViewPrinter view = new ViewPrinter();
+    ManagementService ms = ManagementService.getInstance();
     public void execute(){
+        view.printTitle();
         while(true){
-
             selectFunction();
             System.out.println();
         }
     }
 
     private void selectFunction(){
-        ManageSystem ms = ManageSystem.getInstance();
+        view.printSelection();
         int id = getInput(1,6);
         switch(id){
-            case 1 -> ms.getFuc();
-            case 2 -> ms.readFuc();
-            case 3 -> ms.searchFuc();
-//            case 4 -> ms.updateFuc();
-            case 5 -> ms.deleteFuc();
-            case 6 -> System.exit(0); //종료 함수 대체
-            default -> System.exit(0); //에러 발생 메세지 및 종료
+            case 1 -> ms.input();
+            case 2 -> ms.read();
+            case 3 -> ms.search();
+            case 4 -> ms.update();
+            case 5 -> ms.delete();
+            case 6 -> ms.exitSystem();
+            default -> ms.errorSystem();
         };
     }
 }
