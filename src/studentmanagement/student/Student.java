@@ -1,5 +1,7 @@
 package studentmanagement.student;
 
+import java.util.ArrayList;
+
 public class Student {
     int studentNumber;
     String studentName;
@@ -23,12 +25,26 @@ public class Student {
         return studentNumber;
     }
 
-    public int getTotal(){
-        return totalScore;
+    public String getStudentName() {
+        return studentName;
+    }
+    public int getKoreanScore() {
+        return koreanScore;
+    }
+    public int getMathScore() {
+        return mathScore;
+    }
+    public int getEnglishScore() {
+        return englishScore;
     }
 
-    public void printStudentInfo(){
-        System.out.printf("Number: %3d / Name: %s / KoreanScore: %3d / MathScore: %3d / EnglishScore: %3d / Average: %.2f / Total Score: %3d\n",studentNumber,studentName,koreanScore,mathScore,englishScore,average,totalScore);
+    public String getStudentInfo(){
+        return String.format("| Number : %d | Name : %s | KoreanScore : %3d | MathScore : %3d | EnglishScore : %3d | Average : %.1f | TotalScore : %3d |"
+                , studentNumber, studentName, koreanScore, mathScore, englishScore,average,totalScore);
+    }
+
+    public int getTotal(){
+        return totalScore;
     }
 
     public void setName(String studentName){
