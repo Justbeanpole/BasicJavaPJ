@@ -1,6 +1,10 @@
 package studentmanagement.function;
 
+import studentmanagement.view.ViewPrinter;
+
 import java.util.Scanner;
+import java.util.regex.Pattern;
+import static studentmanagement.constants.Constants.*;
 
 public class InputValidator {
 
@@ -23,13 +27,25 @@ public class InputValidator {
 
     public static int getInput(int min, int max){
         Scanner sc = new Scanner(System.in);
-        System.out.print("Enter : ");
-        String input = sc.nextLine();
-        int result = isInteger(input, min, max);
-        if(result == -1){
-            System.out.println("[ERROR] Invalid Input, Try again");
-            result = getInput(min, max);
+        ViewPrinter view = new ViewPrinter();
+        view.printEnter();
+        int temp = isInteger(sc.nextLine(), min, max);
+        if(temp == -1) {
+            view.printInvalidInput();
+            getInput(min, max);
+        };
+        return temp;
+    }
+
+    public static String inputName() {
+        Scanner sc = new Scanner(System.in);
+        ViewPrinter view = new ViewPrinter();
+        view.printEnter();
+        String name = sc.nextLine();
+        if (!Pattern.matches(ONLY_ENG_KOR, name.trim().toLowerCase())) {
+            view.printInvalidInput();
+            name = inputName();
         }
-        return result;
+        return name;
     }
 }
