@@ -1,9 +1,9 @@
 package studentmanagement.client;
 
-import studentmanagement.function.*;
+import studentmanagement.service.*;
 import studentmanagement.view.ViewPrinter;
 
-import static studentmanagement.function.InputValidator.*;
+import static studentmanagement.service.InputValidator.*;
 
 
 public class Client {

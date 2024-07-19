@@ -1,4 +1,4 @@
-package studentmanagement.function;
+package studentmanagement.service;
 
 import studentmanagement.student.Student;
 import studentmanagement.view.ViewPrinter;
@@ -6,7 +6,7 @@ import studentmanagement.view.ViewPrinter;
 import java.util.*;
 
 import static studentmanagement.constants.Constants.*;
-import static studentmanagement.function.InputValidator.*;
+import static studentmanagement.service.InputValidator.*;
 
 public class ManagementService {
     //SingleTon

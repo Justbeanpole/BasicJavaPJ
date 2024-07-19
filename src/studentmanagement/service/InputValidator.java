@@ -1,4 +1,4 @@
-package studentmanagement.function;
+package studentmanagement.service;
 
 import studentmanagement.view.ViewPrinter;
 
