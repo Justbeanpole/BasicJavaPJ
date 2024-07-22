@@ -9,6 +9,7 @@ import static studentmanagement.service.InputValidator.*;
 public class Client {
     ViewPrinter view = new ViewPrinter();
     ManagementService ms = ManagementService.getInstance();
+
     public void execute(){
         view.printTitle();
         while(true){

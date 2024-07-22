@@ -63,7 +63,6 @@ public class ManagementService {
         else{
             view.printNoExist();
         }
-        System.out.println();
     }
 
     //Search
