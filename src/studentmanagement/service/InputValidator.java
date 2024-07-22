@@ -30,10 +30,12 @@ public class InputValidator {
         ViewPrinter view = new ViewPrinter();
         view.printEnter();
         int temp = isInteger(sc.nextLine(), min, max);
-        if(temp == -1) {
+        while(temp == -1) {
             view.printInvalidInput();
-            getInput(min, max);
+            view.printEnter();
+            temp = isInteger(sc.nextLine(), min, max);
         };
+
         return temp;
     }
 
@@ -42,9 +44,10 @@ public class InputValidator {
         ViewPrinter view = new ViewPrinter();
         view.printEnter();
         String name = sc.nextLine();
-        if (!Pattern.matches(ONLY_ENG_KOR, name.trim().toLowerCase())) {
+        while (!Pattern.matches(ONLY_ENG_KOR, name.trim().toLowerCase())) {
             view.printInvalidInput();
-            name = inputName();
+            view.printEnter();
+            name = sc.nextLine();
         }
         return name;
     }
