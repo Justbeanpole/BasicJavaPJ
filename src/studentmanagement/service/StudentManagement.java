@@ -12,12 +12,6 @@ import static studentmanagement.service.InputValidator.*;
 
 public class StudentManagement {
     StudentViewPrinter view = new StudentViewPrinter();
-    //Singleton
-    private static StudentManagement studentManagement = new StudentManagement();
-    private StudentManagement(){};
-    static StudentManagement getInstance () {
-        return studentManagement;
-    }
 
     private ArrayList<Student> students = new ArrayList<Student>();
     //create
