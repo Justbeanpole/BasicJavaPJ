@@ -13,9 +13,8 @@ public interface Service {
     void loginMenu();
     void selectFunction(User user);
     void editInfo(User user);
-
-    //Login
     void signIn();
+
     static void errorOccurred(){
         view.printError();
         System.exit(0);
