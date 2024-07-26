@@ -1,87 +1,69 @@
 package studentmanagement.view;
 
 
-import studentmanagement.user.Student;
-
 public class ViewPrinter {
 
-    public void printAdminTitle(){
+    public void printTitle(){
         System.out.println("----------------------------");
-        System.out.println("  Admin Management Service  ");
+        System.out.println(" Student Management System ");
         System.out.println("----------------------------");
     }
 
-    public void printStudentTitle(){
-        System.out.println("----------------------------");
-        System.out.println(" Student Management Service ");
-        System.out.println("----------------------------");
-    }
-    public void printModeSelection() {System.out.println("1.Admin | 2.Student | 3.Exit");}
-    public void printLoginSelect() {System.out.println("1.Register | 2.Login | 3.Exit");}
+    public void printUserSelection() {
+        System.out.println("1.Admin | 2.Student | 0.Exit");
+        System.out.print("Enter the number : ");}
 
-    public void printSelection() {
-        System.out.println("1.Create 2.Read 3.Search 4.Update 5.Delete 6.Exit");
-        System.out.println("Enter the number");
+    public void printLoginSelect() {
+        System.out.println("1.Login | 0.Exit");
+        System.out.print("Enter the number : ");}
+    public void printMenu(){
+        System.out.println("1.Service | 2.Service | 0.Exit");
+        System.out.print("Enter the number : ");
     }
-    public void printEnter(){
-        System.out.print("Enter : ");
-    }
+
     public void printInputId(){
-        System.out.println("Enter your ID");
+        System.out.print("Enter your ID : ");
     }
     public void printInputPw(){
-        System.out.println("Enter your Password");
+        System.out.print("Enter your Password : ");
     }
-    public void printIsduplicatedId(){
+    public void printInputName() {System.out.print("Enter your Name : ");}
+
+    public void printFailLogin(){
+        System.out.println("Login Failed, Try Again");
+    }
+
+    public void printDuplicated(){
         System.out.println("That ID already exists. Try again.");
+        System.out.println("Enter your ID : ");
     }
 
-    public void printInputNumber() {
-        System.out.println("Enter the number of Student");
-    }
-
-    public void printInputName() {
-        System.out.println("Enter the name of Student");
-    }
-
-    public void printInputScore(String subject) {
-        switch (subject) {
-            case "Korean" -> System.out.println("Enter the Korean Score");
-            case "Math" -> System.out.println("Enter the Math Score");
-            case "English" -> System.out.println("Enter the English Score");
-        }
-    }
-    public void printNoExist(){
-        System.out.println("No Exist");
-    }
-    public void printSuccessFuction(String a){
-        System.out.println(a+" Success!!");
-    }
-
-    public void printFuctionTitle(String title){
+    public void printFunctionTitle(String title){
         System.out.println("[ "+title.toUpperCase()+" ]");
-    }
-
-    public void printError(){
-        System.out.println("Error Occurred!!");
-    }
-
-    public void printInvalidInput(){
-        System.out.println("[ERROR] Invalid Input, Try again");
     }
 
     public void printSelectionModify(){
         System.out.println("Choose the section you want to modify");
-        System.out.println("1.Name 2.KoreanScore 3.MathScore 4.EnglishScore 0.Cancel");
+        System.out.println("1.Name | 2.Password | 0.Exit");
+        System.out.print("Enter the number : ");
     }
-    public void printStudentInfo(Student student){
-        System.out.println(student.getStudentInfo());
+
+    public void printInvalidInput(){
+        System.out.println("[ERROR] Invalid Input, Try again");
+        System.out.print("Enter : ");
     }
-    public void printIsDuplicatedStNum(){
-        System.out.println("The student number already exists. Try again.");
+
+    public void printSuccess(String a){
+        System.out.println(a+" Success!!");
+    }
+    public void printNoExist(){
+        System.out.println("Nothing Found");
     }
     public void printExit(){
         System.out.println("Exit..");
+    }
+    public void printError(){
+        System.out.println("Error Occurred!!");
     }
 
 }
