@@ -4,7 +4,6 @@ import studentmanagement.user.*;
 import studentmanagement.view.*;
 
 import static studentmanagement.constants.Constants.*;
-import static studentmanagement.service.Service.errorOccurred;
 import static studentmanagement.service.InputValidator.*;
 
 
@@ -64,14 +63,14 @@ public class StudentService implements Service {
 
     void myInfo(Student student){
         view.printFunctionTitle("my info");
-        System.out.println("   Number     : " + student.getId());
-        System.out.println("     Pw       : " + student.getPw());
+        System.out.println("     ID       : " + student.getId());
+        System.out.println("     PW       : " + student.getPw());
         System.out.println("    Name      : " + student.getName());
         System.out.println("Korean Score  : " + student.getKoreanScore());
         System.out.println(" Math Score   : " + student.getMathScore());
         System.out.println("English Score : " + student.getEnglishScore());
         System.out.println(" Total Score  : " + student.getTotal());
-        System.out.printf(" Score Average : %.1f\n",student.getAverage());
+        System.out.printf ("Score Average : %.1f\n",student.getAverage());
     }
 
     public void editInfo(User user){
