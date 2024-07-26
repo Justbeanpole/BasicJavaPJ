@@ -4,51 +4,51 @@ import studentmanagement.view.ViewPrinter;
 
 import java.util.Scanner;
 import java.util.regex.Pattern;
-import static studentmanagement.constants.Constants.*;
+
+
 
 public class InputValidator {
-
     private InputValidator() {}
+    static ViewPrinter view = new ViewPrinter();
+    static Scanner sc = new Scanner(System.in);
+    //String input 검정 id,pw,name ---
+    public static String validatedInput(String input, String pattern) {
+        if (Pattern.matches(pattern, input)) {
+            return input;
+        }
+        return null;
+    }
 
-    public static int isInteger(String input, int min, int max) {
-        try{
+    //Integer input 검정 score, selection
+    public static int validatedInputInt(String input, int min, int max) {
+        try {
             int temp = Integer.parseInt(input);
-            if(temp >= min && temp <= max){
+            if (temp >= min && temp <= max) {
                 return temp;
-            }
-            else{
+            } else {
                 return -1;
             }
-        }
-        catch(Exception e) {
+        } catch (Exception e) {
             return -1;
         }
     }
 
-    public static int getInput(int min, int max){
-        Scanner sc = new Scanner(System.in);
-        ViewPrinter view = new ViewPrinter();
-        view.printEnter();
-        int temp = isInteger(sc.nextLine(), min, max);
-        while(temp == -1) {
+    public static int getInput(int min, int max) {
+        int temp = validatedInputInt(sc.nextLine(), min, max);
+        while (temp == -1) {
             view.printInvalidInput();
-            view.printEnter();
-            temp = isInteger(sc.nextLine(), min, max);
-        };
-
+            temp = validatedInputInt(sc.nextLine(), min, max);
+        }
         return temp;
     }
 
-    public static String inputName() {
-        Scanner sc = new Scanner(System.in);
-        ViewPrinter view = new ViewPrinter();
-        view.printEnter();
-        String name = sc.nextLine();
-        while (!Pattern.matches(ONLY_ENG_KOR, name.trim().toLowerCase())) {
+    public static String getInputString(String pattern) {
+        String id = validatedInput(sc.nextLine(), pattern);
+        while (id == null) {
             view.printInvalidInput();
-            view.printEnter();
-            name = sc.nextLine();
+            id = validatedInput(sc.nextLine(), pattern);
         }
-        return name;
+        return id;
     }
+
 }
