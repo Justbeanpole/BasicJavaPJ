@@ -5,7 +5,6 @@ import studentmanagement.view.*;
 
 import static studentmanagement.service.InputValidator.*;
 import static studentmanagement.constants.Constants.*;
-import static studentmanagement.service.Service.errorOccurred;
 
 import java.util.*;
 
