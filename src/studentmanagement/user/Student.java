@@ -1,19 +1,16 @@
-package studentmanagement.student;
+package studentmanagement.user;
 
-import java.util.ArrayList;
+public class Student extends User {
+    private int koreanScore;
+    private int mathScore;
+    private int englishScore;
+    private double average;
+    private int totalScore;
 
-public class Student {
-    int studentNumber;
-    String studentName;
-    int koreanScore;
-    int mathScore;
-    int englishScore;
-    double average;
-    int totalScore;
-
-    public Student(int studentNumber, String studentName, int koreanScore, int mathScore, int englishScore){
-        this.studentNumber = studentNumber;
-        this.studentName = studentName;
+    public Student(String id, String name, int koreanScore, int mathScore, int englishScore){
+        this.id = id;
+        this.password = id;
+        this.name = name;
         this.koreanScore = koreanScore;
         this.mathScore = mathScore;
         this.englishScore = englishScore;
@@ -21,13 +18,6 @@ public class Student {
         this.average = (double) totalScore/3;
     }
 
-    public int getStudentNumber() {
-        return studentNumber;
-    }
-
-    public String getStudentName() {
-        return studentName;
-    }
     public int getKoreanScore() {
         return koreanScore;
     }
@@ -38,18 +28,16 @@ public class Student {
         return englishScore;
     }
 
-    public String getStudentInfo(){
-        return String.format("| Number : %d | Name : %s | KoreanScore : %3d | MathScore : %3d | EnglishScore : %3d | Average : %.1f | TotalScore : %3d |"
-                , studentNumber, studentName, koreanScore, mathScore, englishScore,average,totalScore);
+    @Override
+    public String getInfo(){
+        return String.format("Number : %s | Name : %s | KoreanScore : %3d | MathScore : %3d | EnglishScore : %3d | Average : %.1f | TotalScore : %3d"
+                , id, name, koreanScore, mathScore, englishScore,average,totalScore);
     }
 
     public int getTotal(){
         return totalScore;
     }
-
-    public void setName(String studentName){
-        this.studentName = studentName;
-    }
+    public double getAverage(){return average;}
     public void setKoreanScore(int koreanScore){
         this.koreanScore = koreanScore;
         this.totalScore = koreanScore + mathScore + englishScore;
