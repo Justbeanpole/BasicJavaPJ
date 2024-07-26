@@ -6,16 +6,17 @@ import studentmanagement.view.ViewPrinter;
 import java.util.Scanner;
 
 public interface Service {
-    StudentManagement st = StudentManagement.getInstance();
+    StudentManagement st = new StudentManagement();
     Scanner sc = new Scanner(System.in);
     ViewPrinter view = new ViewPrinter();
     Admin admin = new Admin();
+
     void loginMenu();
     void selectFunction(User user);
     void editInfo(User user);
     void signIn();
 
-    static void errorOccurred(){
+    default void errorOccurred(){
         view.printError();
         System.exit(0);
     }
