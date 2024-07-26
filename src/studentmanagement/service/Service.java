@@ -20,5 +20,4 @@ public interface Service {
         view.printError();
         System.exit(0);
     }
-
 }

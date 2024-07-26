@@ -13,7 +13,7 @@ import static studentmanagement.service.InputValidator.*;
 public class StudentManagement {
     StudentViewPrinter view = new StudentViewPrinter();
 
-    private ArrayList<Student> students = new ArrayList<Student>();
+    private final ArrayList<Student> students = new ArrayList<Student>();
     //create
     public void createStudent(){
         view.printFunctionTitle("create");
