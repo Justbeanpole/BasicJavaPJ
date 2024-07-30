@@ -15,11 +15,11 @@ public class StudentManagement {
 
     private final ArrayList<Student> students = new ArrayList<Student>();
     //create
-    public void createStudent(){
+    public void create(){
         view.printFunctionTitle("create");
         view.printInputNumber();
         String id = getInputString(STUDENT_NUMBER);
-        while(findStudent(id) != null){
+        while(findUser(id) != null){
             view.printDuplicated();
             id = getInputString(STUDENT_NUMBER);
         }
@@ -37,7 +37,7 @@ public class StudentManagement {
     }
 
     //read
-    public void readStudents() {
+    public void read() {
         view.printFunctionTitle("read");
         if(students.isEmpty()){
             view.printNoExist();
@@ -59,7 +59,7 @@ public class StudentManagement {
     public void update() {
         view.printFunctionTitle("update");
         view.printInputNumber();
-        Student st = findStudent(getInputString(STUDENT_NUMBER));
+        Student st = findUser(getInputString(STUDENT_NUMBER));
         if(st != null) {
             chooseModifySection(st);
             return;
@@ -70,7 +70,7 @@ public class StudentManagement {
     //수정 부분 선택 후 수정
     void chooseModifySection(Student std) {
         view.printSelectionModify();
-        int id = getInput(0, 4);
+        int id = getInput(0, 5);
         switch (id) {
             case 0: {
                 break;
@@ -81,19 +81,24 @@ public class StudentManagement {
                 view.printSuccess("Update");
                 break;
             }
-            case 2: {
+            case 2:{
+                view.printInputPw();
+                std.setPw(getInputString(ID_PW_RULE));
+                view.printSuccess("Update");
+            }
+            case 3: {
                 view.printInputScore("Korean");
                 std.setKoreanScore(getInput(SCORE_MIN, SCORE_MAX));
                 view.printSuccess("Update");
                 break;
             }
-            case 3: {
+            case 4: {
                 view.printInputScore("Math");
                 std.setMathScore(getInput(SCORE_MIN, SCORE_MAX));
                 view.printSuccess("Update");
                 break;
             }
-            case 4: {
+            case 5: {
                 view.printInputScore("English");
                 std.setEnglishScore(getInput(SCORE_MIN, SCORE_MAX));
                 view.printSuccess("Update");
@@ -108,7 +113,7 @@ public class StudentManagement {
     public void delete() {
         view.printFunctionTitle("delete");
         view.printInputNumber();
-        Student st = findStudent(getInputString(STUDENT_NUMBER));
+        Student st = findUser(getInputString(STUDENT_NUMBER));
         if (st != null) {
             view.printSuccess("Delete");
             students.remove(st);
@@ -122,7 +127,7 @@ public class StudentManagement {
         students.add(student);
     }
 
-    Student findStudent(String id) {
+    Student findUser(String id) {
         for (Student student : students) {
             if (student.getId().equals(id)) {
                 return student;
