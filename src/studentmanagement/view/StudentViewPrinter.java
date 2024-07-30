@@ -22,7 +22,7 @@ public class StudentViewPrinter extends ViewPrinter {
     @Override
     public void printSelectionModify() {
         System.out.println("Choose the section you want to modify");
-        System.out.println("1.Name 2.Korean Score 3.Math Score 4.English Score 0.Exit");
+        System.out.println("1.Name | 2.Password | 3.Korean Score | 4.Math Score | 5.English Score | 0.Exit");
         System.out.print("Enter the number : ");
     }
     public void superSelectionModify() {

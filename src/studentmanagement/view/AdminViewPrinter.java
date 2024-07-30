@@ -11,11 +11,11 @@ public class AdminViewPrinter extends ViewPrinter {
 
     @Override
     public void printMenu(){
-        System.out.println("1.StudentManagement | 2.Edit Info | 0.Exit");
+        System.out.println("1.Student Management | 2.Teacher Management | 3.Edit Info | 0.Exit");
         System.out.print("Enter the number : ");
     }
 
-    public void printStudentManageMenu() {
+    public void printManageMenu() {
         System.out.println("1.Create | 2.Read | 3.Update | 4.Delete | 0.Exit");
         System.out.print("Enter the number : ");
     }

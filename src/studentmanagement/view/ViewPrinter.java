@@ -10,12 +10,13 @@ public class ViewPrinter {
     }
 
     public void printUserSelection() {
-        System.out.println("1.Admin | 2.Student | 0.Exit");
+        System.out.println("1.Admin | 2.Student | 3.Teacher | 0.Exit");
         System.out.print("Enter the number : ");}
 
     public void printLoginSelect() {
         System.out.println("1.Login | 0.Exit");
         System.out.print("Enter the number : ");}
+
     public void printMenu(){
         System.out.println("1.Service | 2.Service | 0.Exit");
         System.out.print("Enter the number : ");
@@ -28,6 +29,7 @@ public class ViewPrinter {
         System.out.print("Enter your Password : ");
     }
     public void printInputName() {System.out.print("Enter your Name : ");}
+
 
     public void printFailLogin(){
         System.out.println("Login Failed, Try Again");
