@@ -10,7 +10,6 @@ import java.util.*;
 
 public class AdminService implements Service {
     Scanner sc = new Scanner(System.in);
-    //ViewPrinter 생성
     AdminViewPrinter view = new AdminViewPrinter();
 
     @Override
@@ -34,14 +33,15 @@ public class AdminService implements Service {
     public void selectFunction(User user) {
         while (true) {
             view.printMenu();
-            int input = getInput(0, 4);
+            int input = getInput(0, 3);
             switch (input) {
                 case 0 -> {
                     view.printExit();
                     return;
                 }
                 case 1 -> manageStudent();//학생 관리
-                case 2 -> editInfo(user); //Edit info
+                case 2 -> manageTeacher();
+                case 3 -> editInfo(user); //Edit info
                 default -> errorOccurred();
             }
         }
@@ -85,19 +85,42 @@ public class AdminService implements Service {
     }
 
     void manageStudent(){
-        view.printFunctionTitle("student management");
+        view.printFunctionTitle("Student management");
         while(true){
-            view.printStudentManageMenu();
+            view.printManageMenu();
             int id = getInput(0, 4);
             switch (id) {
                 case 0 -> {
                     view.printExit();
                     return;
                 }
-                case 1 -> st.createStudent();
-                case 2 -> st.readStudents();
+                case 1 -> st.create();
+                case 2 -> st.read();
                 case 3 -> st.update();
                 case 4 -> st.delete();
+                default -> errorOccurred();
+            }
+        }
+    }
+
+    void manageTeacher(){
+        view.printFunctionTitle("Teacher management");
+        while(true){
+            view.printManageMenu();
+            int id = getInput(0, 4);
+            switch (id) {
+                case 0 -> {
+                    view.printExit();
+                    return;
+                }
+                case 1 -> {
+                    view.printFunctionTitle("create");
+                    th.create();
+                    view.printSuccess("Create");
+                }
+                case 2 -> th.read();
+                case 3 -> th.update();
+                case 4 -> th.delete();
                 default -> errorOccurred();
             }
         }
