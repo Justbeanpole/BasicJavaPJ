@@ -6,4 +6,5 @@ public class Constants {
     public static final String ONLY_ENG_KOR = "[a-z가-힣\s]*";
     public static final String ID_PW_RULE = "[A-Za-z0-9]*";
     public static final String STUDENT_NUMBER = "[0-9]{8}";
+    public static final String SUBJECT_NAME = "^(KOREAN|MATH|ENGLISH)$";
 }
