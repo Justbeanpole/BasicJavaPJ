@@ -22,7 +22,7 @@ public class Client {
 
     private Service selectUser() {
         view.printUserSelection();
-        int modeNum = getInput(0,2);
+        int modeNum = getInput(0,3);
         switch (modeNum) {
             case 0 -> {
                 view.printExit();
@@ -33,6 +33,9 @@ public class Client {
             }
             case 2 -> {
                 return new StudentService();
+            }
+            case 3 -> {
+                return new TeacherService();
             }
             default -> {
                 view.printError();
