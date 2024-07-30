@@ -34,7 +34,7 @@ public class StudentService implements Service {
         String id = sc.nextLine();
         view.printInputPw();
         String pw = sc.nextLine();
-        Student student = st.findStudent(id);
+        Student student = st.findUser(id);
         if (student != null && student.getPw().equals(pw)) {
             view.printSuccess("Login");
             selectFunction(student);
@@ -48,7 +48,7 @@ public class StudentService implements Service {
     public void selectFunction(User user) {
         while (true) {
             view.printMenu();
-            int input = getInput(0, 4);
+            int input = getInput(0, 2);
             switch (input) {
                 case 0 -> {
                     view.printExit();
